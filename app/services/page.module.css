@@ -1,0 +1,154 @@
+/* Services Page Styles */
+
+.hero {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8f0fe 100%);
+    padding: 6rem 0 4rem;
+    text-align: center;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: var(--spacing-lg);
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--color-gray);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Enhanced categories section with dark animated background */
+.categoriesSection {
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+    /* Dark background as fallback */
+    background: linear-gradient(135deg, #0a0e1a 0%, #111827 50%, #0f172a 100%);
+}
+
+/* Background overlay to reduce visual noise */
+.backgroundOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
+    z-index: 1;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card link wrapper - makes entire card clickable */
+.cardLink {
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.cardLink:hover {
+    transform: translateY(-8px);
+}
+
+.ctaSection {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.ctaCard {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    color: #ffffff;
+    padding: 3.5rem 2.5rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ctaCard h2 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+}
+
+.ctaCard p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ctaButton {
+    display: inline-block;
+    background: #ffffff;
+    color: #1e40af;
+    padding: 1rem 2.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1.125rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.ctaButton:hover {
+    background: #f0f9ff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .hero {
+        padding: 4rem 0 3rem;
+    }
+
+    .categoriesSection {
+        padding: 3.5rem 0;
+    }
+
+    .ctaSection {
+        padding: 3.5rem 0;
+    }
+
+    .ctaCard {
+        padding: 2.5rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 3rem 0 2rem;
+    }
+
+    .categoriesSection {
+        padding: 2.5rem 0;
+    }
+
+    .ctaSection {
+        padding: 2.5rem 0;
+    }
+}

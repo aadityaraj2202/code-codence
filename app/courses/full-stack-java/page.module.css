@@ -1,0 +1,525 @@
+/* ── Page wrapper ──────────────────────────────────────────────────────── */
+.page {
+    background: #070b14;
+    min-height: 100vh;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    color: #f1f5f9;
+}
+
+/* ── Hero ──────────────────────────────────────────────────────────────── */
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 100px 24px 80px;
+    background: linear-gradient(160deg, #0d1117 0%, #0f172a 60%, #0d1117 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+}
+
+/* Subtle radial glow behind hero */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(251, 146, 60, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.heroBadge {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 999px;
+    background: rgba(251, 146, 60, 0.12);
+    border: 1px solid rgba(251, 146, 60, 0.3);
+    color: #fb923c;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.heroTitle {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 16px;
+    background: linear-gradient(135deg, #fff 30%, #fb923c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.heroSub {
+    font-size: 17px;
+    color: #94a3b8;
+    max-width: 580px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+}
+
+.heroMeta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+}
+
+.metaBadge {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+}
+
+.enrollBtn {
+    display: inline-block;
+    padding: 14px 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #fb923c, #ea580c);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(251, 146, 60, 0.35);
+}
+
+.enrollBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(251, 146, 60, 0.5);
+}
+
+/* ── What You'll Learn section ─────────────────────────────────────────── */
+.roadmapSection {
+    padding: 80px 24px 120px;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.pill {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 999px;
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    color: #a78bfa;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.sectionTitle {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+    color: #f1f5f9;
+}
+
+.sectionSub {
+    font-size: 16px;
+    color: #64748b;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.65;
+}
+
+/* ── SEO Content Section ─────────────────────────────────────────────────── */
+.seoSection {
+    padding: 60px 24px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.seoContainer {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #0d1117;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* slightly stronger border */
+    border-radius: 24px;
+    padding: 48px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    color: #f1f5f9;
+    /* changed from #cbd5e1 to a much brighter white/gray */
+    font-size: 16.5px;
+    /* slightly larger for readability */
+    line-height: 1.8;
+}
+
+.seoContainer h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent-color, #ffffff);
+    /* purest white or dynamic accent for headings */
+    margin: 40px 0 20px;
+    letter-spacing: -0.01em;
+}
+
+.seoContainer h3:first-child {
+    margin-top: 0;
+}
+
+.seoContainer p {
+    margin-bottom: 20px;
+    color: #f8fafc;
+    /* high contrast bright white for easy reading */
+    font-size: 17px;
+    letter-spacing: 0.01em;
+}
+
+.seoContainer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+}
+
+.seoContainer ul li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 12px;
+    color: #f8fafc;
+    /* matching bright text for lists */
+    font-size: 16.5px;
+}
+
+.seoContainer ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color, #8b5cf6);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.seoContainer strong {
+    color: var(--accent-color, #fb923c);
+    /* User dynamic accent color for strong tags to pop on dark background */
+    font-weight: 600;
+}
+
+.seoContainer em {
+    color: #cbd5e1;
+    font-style: italic;
+}
+
+/* ── Timeline ──────────────────────────────────────────────────────────── */
+.timeline {
+    position: relative;
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 48px 0 80px;
+}
+
+/* Vertical road line */
+.road {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    transform: translateX(-50%);
+    background: linear-gradient(to bottom,
+            transparent,
+            #1e293b 4%,
+            #334155 15%,
+            #334155 85%,
+            #1e293b 96%,
+            transparent);
+    border-radius: 4px;
+    z-index: 0;
+}
+
+.road::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    transform: translateX(-50%);
+    background: repeating-linear-gradient(to bottom,
+            transparent 0,
+            transparent 10px,
+            rgba(255, 255, 255, 0.07) 10px,
+            rgba(255, 255, 255, 0.07) 18px);
+}
+
+/* ── Milestone row ─────────────────────────────────────────────────────── */
+.milestone {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 72px;
+    z-index: 1;
+}
+
+/* Left: card left, node at center */
+.left {
+    flex-direction: row;
+}
+
+.left .card {
+    width: calc(50% - 64px);
+    margin-right: 64px;
+}
+
+.left .node {
+    position: absolute;
+    left: 50%;
+    top: 18px;
+    transform: translateX(-50%);
+}
+
+/* Right: node at center, card right */
+.right {
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.right .card {
+    width: calc(50% - 64px);
+    margin-left: 64px;
+}
+
+.right .node {
+    position: absolute;
+    left: 50%;
+    top: 18px;
+    transform: translateX(-50%);
+}
+
+/* ── Card ──────────────────────────────────────────────────────────────── */
+.card {
+    background: #111827;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 18px;
+    padding: 28px;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 16px 56px rgba(0, 0, 0, 0.5);
+}
+
+/* Arrow connectors */
+.left .card::after {
+    content: "";
+    position: absolute;
+    right: calc(50% - 58px);
+    top: 30px;
+    border: 7px solid transparent;
+    border-left-color: rgba(255, 255, 255, 0.07);
+}
+
+.right .card::after {
+    content: "";
+    position: absolute;
+    left: calc(50% - 58px);
+    top: 30px;
+    border: 7px solid transparent;
+    border-right-color: rgba(255, 255, 255, 0.07);
+}
+
+/* ── Level badge ───────────────────────────────────────────────────────── */
+.levelBadge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid;
+    margin-bottom: 16px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.flagLabel {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.levelLabel {
+    opacity: 0.85;
+}
+
+.monthsLabel {
+    margin-left: auto;
+    opacity: 0.6;
+    font-size: 11px;
+}
+
+/* ── Phase name ────────────────────────────────────────────────────────── */
+.phaseName {
+    font-size: 16px;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin: 0 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Sub-section ───────────────────────────────────────────────────────── */
+.subSection {
+    margin-bottom: 18px;
+}
+
+.subTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #cbd5e1;
+    margin: 0 0 10px;
+    letter-spacing: 0.01em;
+}
+
+.subDot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ── Points list ───────────────────────────────────────────────────────── */
+.points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.point {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.55;
+}
+
+.check {
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+/* ── Outcome box ───────────────────────────────────────────────────────── */
+.outcome {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid;
+    font-size: 13.5px;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.outcomeIcon {
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ── Circle node ───────────────────────────────────────────────────────── */
+.node {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 3px solid #070b14;
+    z-index: 2;
+}
+
+.nodeIcon {
+    font-size: 24px;
+    line-height: 1;
+}
+
+/* ── Start / Goal flags ────────────────────────────────────────────────── */
+.flagStart,
+.flagEnd {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 20px;
+    border-radius: 999px;
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    z-index: 3;
+}
+
+.flagStart {
+    top: 0;
+}
+
+.flagEnd {
+    bottom: 0;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 800px) {
+    .road {
+        left: 28px;
+    }
+
+    .milestone {
+        flex-direction: column !important;
+        align-items: flex-start;
+        padding-left: 76px;
+        justify-content: flex-start !important;
+    }
+
+    .left .card,
+    .right .card {
+        width: 100%;
+        margin: 0;
+    }
+
+    .left .node,
+    .right .node {
+        left: 0;
+        top: 12px;
+        transform: none;
+    }
+
+    .left .card::after,
+    .right .card::after {
+        display: none;
+    }
+
+    .flagStart,
+    .flagEnd {
+        left: 28px;
+        transform: none;
+    }
+}

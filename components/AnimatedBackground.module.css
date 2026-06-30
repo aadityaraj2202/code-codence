@@ -1,0 +1,899 @@
+/* ============================================================================
+   FUTURISTIC ANIMATED BACKGROUND - CYBERPUNK AESTHETIC
+   ============================================================================
+   
+   Design Philosophy:
+   - Cyberpunk/Tron/Blade Runner 2049 inspired
+   - Neon colors with glow effects
+   - Animated grid with perspective
+   - Floating geometric shapes
+   - Particle network with connections
+   - Scan line overlay
+   - Dynamic and visually striking
+   
+   Performance:
+   - GPU-accelerated animations
+   - Progressive enhancement for mobile
+   - Respects prefers-reduced-motion
+   
+   ============================================================================ */
+
+/* ============================================================================
+   BASE CONTAINER
+   ============================================================================ */
+
+.futuristicBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+
+    /* Dark base with subtle gradient */
+    background: linear-gradient(135deg,
+            #0a0a0f 0%,
+            #1a1a2e 50%,
+            #0a0a0f 100%);
+}
+
+/* ============================================================================
+   ANIMATED GRID BACKGROUND
+   ============================================================================ */
+
+.gridContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.grid {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 49px,
+            rgba(0, 243, 255, 0.3) 49px,
+            rgba(0, 243, 255, 0.3) 50px),
+        repeating-linear-gradient(90deg,
+            transparent,
+            transparent 49px,
+            rgba(0, 243, 255, 0.3) 49px,
+            rgba(0, 243, 255, 0.3) 50px);
+    transform: rotateX(60deg) translateZ(-200px);
+    animation: gridMove 20s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.5));
+}
+
+@keyframes gridMove {
+    0% {
+        transform: rotateX(60deg) translateZ(-200px) translateY(0);
+    }
+
+    100% {
+        transform: rotateX(60deg) translateZ(-200px) translateY(50px);
+    }
+}
+
+/* ============================================================================
+   SCAN LINES OVERLAY
+   ============================================================================ */
+
+.scanLines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.scanLine {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(0, 243, 255, 0.7) 50%,
+            transparent 100%);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.8);
+    animation: scanMove 8s linear infinite;
+}
+
+.scanLine1 {
+    animation-delay: 0s;
+}
+
+.scanLine2 {
+    animation-delay: -2.7s;
+}
+
+.scanLine3 {
+    animation-delay: -5.3s;
+}
+
+@keyframes scanMove {
+    0% {
+        top: -5%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+
+    100% {
+        top: 105%;
+        opacity: 0;
+    }
+}
+
+/* ============================================================================
+   GEOMETRIC SHAPES - BASE STYLES
+   ============================================================================ */
+
+.shape {
+    position: absolute;
+    will-change: transform;
+    pointer-events: none;
+}
+
+/* ============================================================================
+   HEXAGONS
+   ============================================================================ */
+
+.hexagon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.3), rgba(181, 55, 255, 0.3));
+    clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+    filter: drop-shadow(0 0 15px rgba(0, 102, 255, 0.6));
+    animation: rotateFloat 20s ease-in-out infinite;
+}
+
+.hex1 {
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.hex2 {
+    top: 20%;
+    right: 20%;
+    animation-delay: -2s;
+    width: 100px;
+    height: 100px;
+}
+
+.hex3 {
+    top: 50%;
+    left: 10%;
+    animation-delay: -4s;
+    width: 60px;
+    height: 60px;
+}
+
+.hex4 {
+    top: 70%;
+    right: 15%;
+    animation-delay: -6s;
+}
+
+.hex5 {
+    top: 35%;
+    left: 50%;
+    animation-delay: -8s;
+    width: 70px;
+    height: 70px;
+}
+
+.hex6 {
+    top: 80%;
+    left: 30%;
+    animation-delay: -10s;
+    width: 90px;
+    height: 90px;
+}
+
+.hex7 {
+    top: 15%;
+    left: 70%;
+    animation-delay: -12s;
+    width: 65px;
+    height: 65px;
+}
+
+.hex8 {
+    top: 60%;
+    right: 40%;
+    animation-delay: -14s;
+    width: 75px;
+    height: 75px;
+}
+
+@keyframes rotateFloat {
+
+    0%,
+    100% {
+        transform: rotate(0deg) translateY(0) scale(1);
+        opacity: 0.3;
+    }
+
+    25% {
+        transform: rotate(90deg) translateY(-20px) scale(1.1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: rotate(180deg) translateY(0) scale(1);
+        opacity: 0.4;
+    }
+
+    75% {
+        transform: rotate(270deg) translateY(20px) scale(0.9);
+        opacity: 0.5;
+    }
+}
+
+/* ============================================================================
+   TRIANGLES
+   ============================================================================ */
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 70px solid rgba(0, 255, 136, 0.4);
+    filter: drop-shadow(0 0 12px rgba(0, 255, 136, 0.7));
+    animation: rotateFloatReverse 15s ease-in-out infinite;
+}
+
+.tri1 {
+    top: 25%;
+    left: 25%;
+    animation-delay: 0s;
+}
+
+.tri2 {
+    top: 45%;
+    right: 25%;
+    animation-delay: -2.5s;
+    transform: scale(0.8);
+}
+
+.tri3 {
+    top: 65%;
+    left: 45%;
+    animation-delay: -5s;
+    transform: scale(1.2);
+}
+
+.tri4 {
+    top: 15%;
+    right: 35%;
+    animation-delay: -7.5s;
+}
+
+.tri5 {
+    top: 75%;
+    right: 50%;
+    animation-delay: -10s;
+    transform: scale(0.9);
+}
+
+.tri6 {
+    top: 40%;
+    left: 65%;
+    animation-delay: -12.5s;
+    transform: scale(1.1);
+}
+
+@keyframes rotateFloatReverse {
+
+    0%,
+    100% {
+        transform: rotate(0deg) translateX(0) scale(1);
+        opacity: 0.2;
+    }
+
+    33% {
+        transform: rotate(-120deg) translateX(30px) scale(1.15);
+        opacity: 0.5;
+    }
+
+    66% {
+        transform: rotate(-240deg) translateX(-30px) scale(0.85);
+        opacity: 0.4;
+    }
+}
+
+/* ============================================================================
+   CIRCLES
+   ============================================================================ */
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 0, 110, 0.5), rgba(255, 27, 141, 0.2));
+    filter: drop-shadow(0 0 20px rgba(255, 0, 110, 0.8));
+    animation: pulse 10s ease-in-out infinite;
+}
+
+.circ1 {
+    top: 18%;
+    left: 40%;
+    animation-delay: 0s;
+}
+
+.circ2 {
+    top: 55%;
+    right: 30%;
+    animation-delay: -1.7s;
+    width: 40px;
+    height: 40px;
+}
+
+.circ3 {
+    top: 85%;
+    left: 55%;
+    animation-delay: -3.3s;
+    width: 60px;
+    height: 60px;
+}
+
+.circ4 {
+    top: 30%;
+    right: 10%;
+    animation-delay: -5s;
+}
+
+.circ5 {
+    top: 72%;
+    left: 20%;
+    animation-delay: -6.7s;
+    width: 45px;
+    height: 45px;
+}
+
+.circ6 {
+    top: 48%;
+    left: 80%;
+    animation-delay: -8.3s;
+    width: 55px;
+    height: 55px;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.3) translateY(-15px);
+        opacity: 0.7;
+    }
+}
+
+/* ============================================================================
+   GLOWING ORBS
+   ============================================================================ */
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform, opacity;
+    pointer-events: none;
+    animation: orbPulse 6s ease-in-out infinite;
+}
+
+.orb1 {
+    top: 12%;
+    left: 8%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(0, 243, 255, 0.4), transparent 70%);
+    filter: blur(30px);
+}
+
+.orb2 {
+    top: 50%;
+    right: 10%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(181, 55, 255, 0.3), transparent 70%);
+    filter: blur(40px);
+    animation-delay: -2s;
+}
+
+.orb3 {
+    bottom: 15%;
+    left: 20%;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(0, 255, 136, 0.35), transparent 70%);
+    filter: blur(35px);
+    animation-delay: -4s;
+}
+
+.orb4 {
+    top: 35%;
+    left: 45%;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255, 0, 110, 0.4), transparent 70%);
+    filter: blur(25px);
+    animation-delay: -1s;
+}
+
+.orb5 {
+    bottom: 30%;
+    right: 35%;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.35), transparent 70%);
+    filter: blur(32px);
+    animation-delay: -3s;
+}
+
+@keyframes orbPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* ============================================================================
+   PARTICLE NETWORK
+   ============================================================================ */
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(0, 243, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 243, 255, 0.8);
+    animation: particleFloat 12s ease-in-out infinite;
+}
+
+/* Particle positioning */
+.p1 {
+    top: 10%;
+    left: 12%;
+    animation-delay: 0s;
+}
+
+.p2 {
+    top: 15%;
+    left: 28%;
+    animation-delay: -1s;
+}
+
+.p3 {
+    top: 8%;
+    left: 45%;
+    animation-delay: -2s;
+}
+
+.p4 {
+    top: 18%;
+    left: 62%;
+    animation-delay: -3s;
+}
+
+.p5 {
+    top: 12%;
+    left: 78%;
+    animation-delay: -4s;
+}
+
+.p6 {
+    top: 22%;
+    left: 88%;
+    animation-delay: -5s;
+}
+
+.p7 {
+    top: 25%;
+    left: 18%;
+    animation-delay: -6s;
+}
+
+.p8 {
+    top: 28%;
+    left: 35%;
+    animation-delay: -7s;
+}
+
+.p9 {
+    top: 32%;
+    left: 52%;
+    animation-delay: -8s;
+}
+
+.p10 {
+    top: 35%;
+    left: 72%;
+    animation-delay: -9s;
+}
+
+.p11 {
+    top: 42%;
+    left: 8%;
+    animation-delay: -1.5s;
+}
+
+.p12 {
+    top: 48%;
+    left: 22%;
+    animation-delay: -2.5s;
+}
+
+.p13 {
+    top: 45%;
+    left: 38%;
+    animation-delay: -3.5s;
+}
+
+.p14 {
+    top: 52%;
+    left: 55%;
+    animation-delay: -4.5s;
+}
+
+.p15 {
+    top: 48%;
+    left: 68%;
+    animation-delay: -5.5s;
+}
+
+.p16 {
+    top: 55%;
+    left: 82%;
+    animation-delay: -6.5s;
+}
+
+.p17 {
+    top: 58%;
+    left: 15%;
+    animation-delay: -7.5s;
+}
+
+.p18 {
+    top: 62%;
+    left: 32%;
+    animation-delay: -8.5s;
+}
+
+.p19 {
+    top: 65%;
+    left: 48%;
+    animation-delay: -9.5s;
+}
+
+.p20 {
+    top: 68%;
+    left: 75%;
+    animation-delay: -10.5s;
+}
+
+.p21 {
+    top: 72%;
+    left: 10%;
+    animation-delay: -2s;
+}
+
+.p22 {
+    top: 78%;
+    left: 25%;
+    animation-delay: -3s;
+}
+
+.p23 {
+    top: 75%;
+    left: 42%;
+    animation-delay: -4s;
+}
+
+.p24 {
+    top: 82%;
+    left: 58%;
+    animation-delay: -5s;
+}
+
+.p25 {
+    top: 78%;
+    left: 72%;
+    animation-delay: -6s;
+}
+
+.p26 {
+    top: 85%;
+    left: 88%;
+    animation-delay: -7s;
+}
+
+.p27 {
+    top: 88%;
+    left: 18%;
+    animation-delay: -8s;
+}
+
+.p28 {
+    top: 92%;
+    left: 35%;
+    animation-delay: -9s;
+}
+
+.p29 {
+    top: 90%;
+    left: 52%;
+    animation-delay: -10s;
+}
+
+.p30 {
+    top: 95%;
+    left: 68%;
+    animation-delay: -11s;
+}
+
+@keyframes particleFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+        opacity: 0.6;
+    }
+
+    25% {
+        transform: translate(20px, -30px);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(-15px, -15px);
+        opacity: 0.7;
+    }
+
+    75% {
+        transform: translate(10px, 25px);
+        opacity: 0.9;
+    }
+}
+
+/* ============================================================================
+   GRADIENT OVERLAY FOR DEPTH
+   ============================================================================ */
+
+.gradientOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center,
+            transparent 0%,
+            rgba(10, 10, 15, 0.4) 100%);
+    pointer-events: none;
+    z-index: 6;
+}
+
+/* ============================================================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .grid,
+    .scanLine,
+    .shape,
+    .orb,
+    .particle {
+        animation: none !important;
+    }
+
+    .shape,
+    .orb,
+    .particle {
+        opacity: 0.2;
+    }
+
+    .scanLine {
+        display: none;
+    }
+}
+
+/* ============================================================================
+   RESPONSIVE OPTIMIZATION - TABLET
+   ============================================================================ */
+
+@media (max-width: 1024px) {
+
+    /* Reduce geometric shapes */
+    .hex7,
+    .hex8,
+    .tri5,
+    .tri6,
+    .circ5,
+    .circ6 {
+        display: none;
+    }
+
+    /* Reduce particles */
+    .p21,
+    .p22,
+    .p23,
+    .p24,
+    .p25,
+    .p26,
+    .p27,
+    .p28,
+    .p29,
+    .p30 {
+        display: none;
+    }
+
+    /* Simplify orbs */
+    .orb4,
+    .orb5 {
+        display: none;
+    }
+}
+
+/* ============================================================================
+   RESPONSIVE OPTIMIZATION - MOBILE
+   ============================================================================ */
+
+@media (max-width: 768px) {
+
+    /* Simplify grid */
+    .grid {
+        background-image:
+            repeating-linear-gradient(0deg,
+                transparent,
+                transparent 74px,
+                rgba(0, 243, 255, 0.2) 74px,
+                rgba(0, 243, 255, 0.2) 75px),
+            repeating-linear-gradient(90deg,
+                transparent,
+                transparent 74px,
+                rgba(0, 243, 255, 0.2) 74px,
+                rgba(0, 243, 255, 0.2) 75px);
+        animation-duration: 30s;
+    }
+
+    /* Hide scan lines */
+    .scanLines {
+        display: none;
+    }
+
+    /* Reduce shapes significantly */
+    .hex3,
+    .hex4,
+    .hex5,
+    .hex6,
+    .hex7,
+    .hex8,
+    .tri3,
+    .tri4,
+    .tri5,
+    .tri6,
+    .circ3,
+    .circ4,
+    .circ5,
+    .circ6 {
+        display: none;
+    }
+
+    /* Keep minimal particles */
+    .p11,
+    .p12,
+    .p13,
+    .p14,
+    .p15,
+    .p16,
+    .p17,
+    .p18,
+    .p19,
+    .p20,
+    .p21,
+    .p22,
+    .p23,
+    .p24,
+    .p25,
+    .p26,
+    .p27,
+    .p28,
+    .p29,
+    .p30 {
+        display: none;
+    }
+
+    /* Reduce orbs */
+    .orb3,
+    .orb4,
+    .orb5 {
+        display: none;
+    }
+
+    /* Smaller remaining shapes */
+    .hexagon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .triangle {
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-bottom: 50px solid rgba(0, 255, 136, 0.4);
+    }
+
+    .circle {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* ============================================================================
+   RESPONSIVE OPTIMIZATION - SMALL MOBILE
+   ============================================================================ */
+
+@media (max-width: 480px) {
+
+    /* Static grid */
+    .grid {
+        animation: none;
+        opacity: 0.3;
+    }
+
+    /* Minimal shapes */
+    .hex2,
+    .tri2,
+    .circ2 {
+        display: none;
+    }
+
+    /* Reduce orb sizes */
+    .orb1,
+    .orb2 {
+        width: 100px;
+        height: 100px;
+    }
+}

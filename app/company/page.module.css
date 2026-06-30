@@ -1,0 +1,240 @@
+/* Company / About Us page */
+
+.page {
+    background: #f9fafb;
+    min-height: 100vh;
+}
+
+/* ─── Hero ─── */
+
+.hero {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    padding: 5rem 1.5rem;
+    text-align: center;
+}
+
+.heroContent {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.heroContent h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1.25rem;
+    line-height: 1.2;
+}
+
+.heroContent p {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ─── Timeline Section ─── */
+
+.timelineSection {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.sectionHeader h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.75rem;
+}
+
+.sectionHeader p {
+    color: #6b7280;
+    font-size: 1rem;
+}
+
+.timelineContainer {
+    position: relative;
+}
+
+/* Vertical center line */
+.timelineLine {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #4f46e5, #7c3aed);
+    transform: translateX(-50%);
+    border-radius: 99px;
+}
+
+.timelineItems {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.timelineItem {
+    display: grid;
+    grid-template-columns: 1fr 56px 1fr;
+    align-items: center;
+    gap: 0;
+}
+
+/* Left-positioned card */
+.left .itemContent {
+    grid-column: 1;
+    padding-right: 2rem;
+    text-align: right;
+}
+
+.left .itemNode {
+    grid-column: 2;
+}
+
+.left .itemEmpty {
+    grid-column: 3;
+}
+
+/* Right-positioned card */
+.right .itemEmpty {
+    grid-column: 1;
+}
+
+.right .itemNode {
+    grid-column: 2;
+}
+
+.right .itemContent {
+    grid-column: 3;
+    padding-left: 2rem;
+    text-align: left;
+}
+
+/* Node circle */
+.itemNode {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 6px rgba(79, 70, 229, 0.15);
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    justify-self: center;
+}
+
+/* Policy card */
+.policyCard {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.policyCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.12);
+}
+
+.stepTag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #4f46e5;
+    background: #ede9fe;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+}
+
+.policyCard h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.policyCard p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+}
+
+.cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #4f46e5;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+}
+
+.cta:hover {
+    border-color: #4f46e5;
+}
+
+/* ─── Footer ─── */
+
+.companyFooter {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: #1f2937;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+}
+
+/* ─── Mobile ─── */
+
+@media (max-width: 768px) {
+    .timelineLine {
+        left: 24px;
+    }
+
+    .timelineItem {
+        grid-template-columns: 48px 1fr;
+    }
+
+    .left .itemContent,
+    .right .itemContent {
+        grid-column: 2;
+        grid-row: 1;
+        padding-left: 1rem;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .left .itemNode,
+    .right .itemNode {
+        grid-column: 1;
+        grid-row: 1;
+        width: 48px;
+        height: 48px;
+        font-size: 13px;
+    }
+
+    .left .itemEmpty,
+    .right .itemEmpty {
+        display: none;
+    }
+}

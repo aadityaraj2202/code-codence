@@ -1,26 +1,394 @@
 @import "tailwindcss";
 
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent scroll when menu open */
+body.menuOpen {
+  overflow: hidden !important;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ============================= */
+/* ðŸŒŸ DESIGN SYSTEM (KEEP THIS) */
+/* ============================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors */
+  --color-primary-blue: #4A90E2;
+  --color-primary-green: #2ECC71;
+
+  /* Fonts */
+  --font-heading: 'Outfit', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ============================= */
+/* ðŸ§± BASE STYLES */
+/* ============================= */
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* ============================= */
+/* âœ¨ ANIMATIONS */
+/* ============================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
 }
+
+/* ============================= */
+/* ðŸŽ¯ FOCUS + SELECTION */
+/* ============================= */
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary-blue);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-primary-blue);
+  color: #fff;
+}
+
+/* ============================= */
+/* ðŸ§© COMPONENT-SPECIFIC CSS */
+/* ============================= */
+
+/* Sidebar (used in Legal pages) */
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 80px;
+}
+
+.sidebar-link {
+  transition: 0.2s;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  background: #ede9fe;
+  color: #4f46e5;
+}
+
+/* Footer */
+.footer-link:hover {
+  color: #ffffff !important;
+}
+
+/* ============================= */
+/* ðŸ“± RESPONSIVE FIXES */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(216, 243, 232, 0.8), transparent 28%),
+    linear-gradient(180deg, #f8fbf7 0%, #f4f7f3 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.btn-primary {
+  background: #4f46e5;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #4338ca;
+}
+
+.course-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.course-card-thumbnail {
+  position: relative;
+  height: 170px;
+  background: linear-gradient(135deg, #e0e7ff, #ede9fe);
+}
+
+.course-card-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnail-placeholder {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.level-badge {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  border-radius: 999px;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+}
+
+.course-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.25rem;
+}
+
+.course-category {
+  color: #4f46e5;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.course-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.course-desc {
+  color: #64748b;
+  font-size: 0.88rem;
+}
+
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  color: #64748b;
+  font-size: 0.82rem;
+  margin-top: auto;
+}
+
+.card-progress {
+  margin-top: 0.25rem;
+}
+
+.course-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.enrolled-badge {
+  color: #059669;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.trainer-info-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.avatar-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  background: #4f46e5;
+  color: white;
+  font-weight: 800;
+}
+
+.avatar-placeholder.large {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.25rem;
+}
+
+.trainer-details h4 {
+  margin: 0 0 0.2rem;
+}
+
+.trainer-email,
+.trainer-bio {
+  color: #64748b;
+  font-size: 0.88rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: #e0e7ff;
+  color: #4338ca;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.schedule-table th {
+  text-align: left;
+  color: #64748b;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.8rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.schedule-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.status-chip {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.status-chip.done {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-chip.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.progress-bar-wrapper {
+  width: 100%;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+  color: #64748b;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.progress-percent {
+  color: #4f46e5;
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e0e7ff;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+}
+
+.progress-detail {
+  margin-top: 0.35rem;
+  color: #64748b;
+  font-size: 0.78rem;
+}
+
