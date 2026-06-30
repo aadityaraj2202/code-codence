@@ -52,7 +52,7 @@ function persistAuth(auth: AuthResponse) {
 
 export async function login(payload: AuthPayload): Promise<LoginResponse> {
   const response = await request<AuthResponse, AuthPayload>({
-   url: "/api/auth/login",
+    url: "/api/auth/login",
     method: "post",
     data: payload,
   });
@@ -86,7 +86,7 @@ export async function sendOtp(email: string): Promise<OtpResponse> {
   }
 
   return request<OtpResponse, { email: string }>({
-    url: "/otp/send",
+    url: "/api/otp/send",
     method: "post",
     data: { email: normalizedEmail },
   });
@@ -105,7 +105,7 @@ export async function verifyOtp(email: string, otp: string): Promise<AuthRespons
   }
 
   return request<AuthResponse, { email: string; otp: string }>({
-    url: "/otp/verify",
+   url: "/api/otp/verify",
     method: "post",
     data: { email: normalizedEmail, otp: normalizedOtp },
   });
