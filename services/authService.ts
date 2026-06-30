@@ -52,7 +52,7 @@ function persistAuth(auth: AuthResponse) {
 
 export async function login(payload: AuthPayload): Promise<LoginResponse> {
   const response = await request<AuthResponse, AuthPayload>({
-    url: "/auth/login",
+   url: "/api/auth/login",
     method: "post",
     data: payload,
   });
@@ -72,7 +72,7 @@ export async function login(payload: AuthPayload): Promise<LoginResponse> {
 
 export async function signup(data: SignupPayload): Promise<AuthResponse> {
   return request<AuthResponse, SignupPayload>({
-    url: "/auth/signup",
+    url: "/api/auth/signup",
     method: "post",
     data,
   });
